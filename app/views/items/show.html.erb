@@ -1,8 +1,16 @@
 <center><h1>Item Details</h1></center>
 <hr>
 <p><strong>Item:</strong> <%= @item.name %></p>
-
 <p><strong>Cost:</strong> <%= @item.cost %></p>
 <p><strong>Assigned Project:</strong> <%= @item.project.name %></p>
 <hr>
+<br>
 <p><strong>Number of manufacturers for this item:</strong> <%= @item.manufacturer_count %></p>
+<br>
+<div class="add_manufacturer">
+  <%= form_with url: "/items/#{@item.id}/manufacturers", method: :post, local: true do |f| %>
+  <h3><%= f.label :manufacturer_name, "Add a manufacturer to this project" %></h3>
+  <%= f.text_field :manufacturer_name, placeholder: 'Manufacturers Name' %>
+  <%= f.submit "Add manufacturer to item" %>
+  <% end %>
+</div>
