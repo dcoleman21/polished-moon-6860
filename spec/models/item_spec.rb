@@ -22,7 +22,6 @@ RSpec.describe Item, type: :model do
       @wood = @project_1.items.create!(name: 'Wood', cost: 200)
       @screws = @project_1.items.create!(name: 'Screws', cost: 30)
       @tools = @project_1.items.create!(name: 'Tools', cost: 400)
-
       @steel = @project_2.items.create!(name: 'Steel', cost: 300)
       @torch = @project_2.items.create!(name: 'Acetylene', cost: 200)
       @concrete = @project_2.items.create!(name: 'Concrete', cost: 125)
@@ -32,7 +31,6 @@ RSpec.describe Item, type: :model do
       @rfp = Manufacturer.create!(name: 'Resolute Forest Products Inc.', location: 'Montreal, Quebec')
       @sfs = Manufacturer.create!(name: 'Southern Fasteners & Supply, Inc.', location: 'Winston-Salem, NC')
       @bosch = Manufacturer.create!(name: 'Bosch', location: 'Gerlingen, Germany')
-
       @ussc = Manufacturer.create!(name: 'United States Steel Corp.', location: 'Pittsburgh, PA')
       @ck = Manufacturer.create!(name: 'CK Worldwide', location: 'Auburn, WA')
       @cem = Manufacturer.create!(name: 'Cemex', location: 'San Pedro Garza García, Mexico')
@@ -47,7 +45,7 @@ RSpec.describe Item, type: :model do
       ManufacturerItem.create!(item_id: @concrete.id, manufacturer_id: @cem.id)
     end
 
-    it " can get the count of manufacturers for an item" do
+    it "can get the count of manufacturers for an item" do
       expect(@hammer.manufacturer_count).to eq(1)
       expect(@wood.manufacturer_count).to eq(1)
       expect(@screws.manufacturer_count).to eq(1)
