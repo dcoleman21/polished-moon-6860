@@ -6,5 +6,5 @@ Rails.application.routes.draw do
 
   get '/projects/:id', to: 'projects#show'
 
-  post '/items/:item_id/manufacturers', to: 'manufacturer_items#create'
+  post '/items/:item_id/manufacturer', to: 'manufacturer_items#create'
 end

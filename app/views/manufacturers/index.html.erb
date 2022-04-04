@@ -1,15 +1,14 @@
 <center><h1>All Manufacturers and Their Items</h1></center>
 <% @manufacturers.each do |manufacturer| %>
 <hr>
-  <section class='manufacturer'>
-    <p class='name'><strong>Manufacturer:</strong> <%= manufacturer.name %></p>
-    <div class="items">
-      <h4>Items:</h4>
-      <ul>
-        <% manufacturer.items.each do |item| %>
-          <li><%= item.name %></li>
-        <% end %>
-      </ul>
-    </div>
-  </section>
+  <div id="manufacturer-<%= manufacturer.id %>">
+    <p><strong>Manufacturer:</strong> <%= manufacturer.name %></p>
+    <h4>Items:</h4>
+    <ul>
+      <% manufacturer.items.each do |item| %>
+        <li><%= item.name %></li>
+      <% end %>
+    </ul>
+  </div>
+<hr>
 <% end %>

@@ -37,16 +37,53 @@ RSpec.describe 'Manufacturers Index Page' do
       visit '/manufacturers'
 
       expect(page).to have_content('All Manufacturers and Their Items')
-      
-      within(first(".manufacturer")) do
-        within('.name') do
-          expect(page).to have_content('ABC Hammers')
-          expect(page).to_not have_content('Resolute Forest Products Inc.')
-        end
-        within('.items') do
-          expect(page).to have_content('Hammer')
-          expect(page).to_not have_content('Wood')
-        end
+
+      within("#manufacturer-#{@abc.id}") do
+        expect(page).to have_content('ABC Hammers')
+        expect(page).to have_content('Hammer')
+        expect(page).to_not have_content('Resolute Forest Products Inc.')
+        expect(page).to_not have_content('Wood')
+      end
+
+      within("#manufacturer-#{@rfp.id}") do
+        expect(page).to have_content('Resolute Forest Products Inc.')
+        expect(page).to have_content('Wood')
+        expect(page).to_not have_content('ABC Hammers')
+        expect(page).to_not have_content('Hammer')
+      end
+
+      within("#manufacturer-#{@sfs.id}") do
+        expect(page).to have_content('Southern Fasteners & Supply, Inc.')
+        expect(page).to have_content('Screws')
+        expect(page).to_not have_content('ABC Hammers')
+        expect(page).to_not have_content('Hammer')
+      end
+
+      within("#manufacturer-#{@bosch.id}") do
+        expect(page).to have_content('Bosch')
+        expect(page).to have_content('Tools')
+        expect(page).to_not have_content('ABC Hammers')
+        expect(page).to_not have_content('Hammer')
+      end
+
+      within("#manufacturer-#{@ussc.id}") do
+        expect(page).to have_content('United States Steel Corp.')
+        expect(page).to have_content('Steel')
+        expect(page).to_not have_content('ABC Hammers')
+        expect(page).to_not have_content('Hammer')
+      end
+
+      within("#manufacturer-#{@ck.id}") do
+        expect(page).to have_content('CK Worldwide')
+        expect(page).to have_content('Acetylene')
+        expect(page).to_not have_content('ABC Hammers')
+        expect(page).to_not have_content('Hammer')
+      end
+      within("#manufacturer-#{@cem.id}") do
+        expect(page).to have_content('Cemex')
+        expect(page).to have_content('Concrete')
+        expect(page).to_not have_content('ABC Hammers')
+        expect(page).to_not have_content('Hammer')
       end
     end
   end

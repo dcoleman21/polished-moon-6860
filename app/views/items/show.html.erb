@@ -7,10 +7,8 @@
 <br>
 <p><strong>Number of manufacturers for this item:</strong> <%= @item.manufacturer_count %></p>
 <br>
-<div class="add_manufacturer">
-  <%= form_with url: "/items/#{@item.id}/manufacturers", method: :post, local: true do |f| %>
-  <h3><%= f.label :manufacturer_name, "Add a manufacturer to this project" %></h3>
-  <%= f.text_field :manufacturer_name, placeholder: 'Manufacturers Name' %>
+<%= form_with url: "/items/#{@item.id}/manufacturer", method: :post, local: true do |f| %>
+  <h3><%= f.label :new_manufacturer, "Add a manufacturer to this project" %></h3>
+  <%= f.text_field :new_manufacturer, id: "new_manufacturer", placeholder: "Manufacturer Id" %>
   <%= f.submit "Add manufacturer to item" %>
-  <% end %>
-</div>
+<% end %>
