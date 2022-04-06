@@ -47,9 +47,11 @@ RSpec.describe 'Items show page' do
 
       expect(current_path).to eq("/items/#{@hammer.id}")
 
-      # within("#manufacturer-#{@rfp.id}") do
-      #   expect(page).to have_content("#{@hammer.id}")
-      # end
+      visit '/manufacturers'
+
+      within("#manufacturer-#{@rfp.id}") do
+        expect(page).to have_content("Wood")
+      end
     end
   end
 end
